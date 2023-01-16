@@ -19,7 +19,7 @@ yCoord' (MkCart2DVec' _ y) = y
 
 -- ###
 
-data Cart2DVec'' a = MkCart2DVec'' {x::a, y::a}
+--data Cart2DVec'' a = MkCart2DVec'' {x::a, y::a}
 
 --xCoord'' :: Cart2DVec'' a -> a
 --xCoord'' (MkCart2DVec'' {x = xVal, y = _}) = xVal
@@ -61,3 +61,18 @@ data Cart3DVec a = Cart3DVec a a a
 
 x3DCoord :: Cart3DVec a -> a
 x3DCoord (Cart3DVec x _ _) = x
+
+y3DCoord :: Cart3DVec a -> a
+y3DCoord (Cart3DVec _ y _) = y
+
+z3DCoord :: Cart3DVec a -> a
+z3DCoord (Cart3DVec _ _ z) = z
+
+data Cart3DVec' a = Cart3DVec' {x::a, y::a, z::a}
+
+data Shape = Circle Float |
+             Rectangle Float Float
+
+area :: Shape -> Float
+area (Circle r) = pi*r*r
+area (Rectangle a b) = a*b
